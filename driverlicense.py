@@ -1,31 +1,46 @@
 from tkinter import *
 
-root = Tk()
+root=Tk()
 
 root.title("Fibonacci")
 root.geometry("400x400")
 
-label_series = Label(root, text="Fibonacci Series:  ")
-entry1 = tk.Entry(root)
+enter_1 = Entry(root)
+label = Label(root,text="Fibonacci Series:  ")
+
+label2 = Label(root,text="Fibonacci Sum:")
+
 
 def Fibonacci():
-    num = entry1["text"]
+   
+    input_no = int(enter_1.get())
+   
     first_no = 0
     second_no = 1
     sum = 0
+    sum2 = 0
     counter = 1
-    while (counter <= num):
-        label_series["text"] += str(sum) + " "
+   
+    while(counter <= input_no):
+        label["text"] += str(sum) + " "
+        label2["text"] = "Fibonacci Sum : " + str(sum2)
         counter = counter + 1
         first_no = second_no
         second_no = sum
         sum = first_no + second_no
-    label_spiral["text"] = "\n. Total spiral are " + str(sum)
+        sum2 = sum2 + sum
+       
+       
+       
+       
+enter_1.pack()
 
-btn = Button(root, text="Show Fibonacci Series", command=Fibonacci)
-
+btn=Button(root,text="Show Fibonacci Series",command=Fibonacci, fg="white",
+           bg="dark blue")
 btn.pack()
-label_series.pack()
-label_flower.pack()
-label_spiral.pack()
+
+label.pack()
+label2.pack()
+
+
 root.mainloop()
